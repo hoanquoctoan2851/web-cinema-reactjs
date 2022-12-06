@@ -10,7 +10,7 @@ export function ProtectedPage() {
   // If no session exists, display access denied message
   if (!session) {
     return (
-      <h1>Need Login</h1>
+      <h1>Hãy đăng nhập</h1>
     )
   }
 
