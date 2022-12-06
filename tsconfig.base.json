@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@hotato/shared/components": ["libs/shared/components/src/index.ts"],
+      "@hotato/shared/hooks": ["libs/shared/hooks/src/index.ts"],
+      "@hotato/shared/modules": ["libs/shared/modules/src/index.ts"],
+      "@hotato/shared/services": ["libs/shared/services/src/index.ts"],
+      "@hotato/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@hotato/web/components": ["libs/web/components/src/index.ts"],
+      "@hotato/web/hooks": ["libs/web/hooks/src/index.ts"],
+      "@hotato/web/modules": ["libs/web/modules/src/index.ts"],
+      "@hotato/web/services": ["libs/web/services/src/index.ts"],
+      "@hotato/web/utils": ["libs/web/utils/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,25 @@
+@import '~antd/dist/antd.css';
+@import "./iconmoon.css";
+@import "./components/components";
+@import "./modules/_modules";
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply dark:bg-black dark:text-white;
+    font-family: Poppins, Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+input[type=range]::-webkit-slider-thumb {
+  border: 2px solid #00001E;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #C6FF53;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}

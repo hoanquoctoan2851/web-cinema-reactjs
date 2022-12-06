@@ -1,0 +1,10 @@
+.box-app {
+  &:hover {
+    .box-image {
+      transform: translateY(-10px);
+    }
+    h2 {
+      @apply text-orange-400
+    }
+  }
+}

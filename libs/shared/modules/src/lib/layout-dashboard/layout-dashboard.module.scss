@@ -1,0 +1,15 @@
+.ant-menu-item {
+  margin-top: 0 !important;
+}
+.sidebar-closed {
+  width: calc(100% - 200px) !important;
+}
+.sidebar-opened {
+  width: calc(100% - 80px) !important;
+}
+.dashboard-content {
+  min-height: calc(100vh - 64px);
+}
+.styles.ant-popover-title {
+  padding: 0px;
+}
