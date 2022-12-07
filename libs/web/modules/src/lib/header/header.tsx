@@ -45,10 +45,13 @@ export function Header(props: HeaderProps) {
     return () => console.log('mounted')
   }, [])
   const menus = [
-    { name: 'Home', href: '/'},
-    { name: 'About', href: '/about'},
-    { name: 'Protected', href: '/protected'},
-    { name: 'Dashboard', href: '/dashboard'},
+    { name: 'LỊCH CHIẾU THEO RẠP', href: '/protected'},
+    { name: 'PHIM', href: '/about'},
+    { name: 'RẠP', href: '/protected'},
+    { name: 'GIÁ VÉ', href: '/dashboard'},
+    { name: 'TIN MỚI VÀ ƯU ĐÃI', href: '/'},
+    { name: 'NHƯỢNG QUYỀN', href: '/'},
+    { name: 'THÀNH VIÊN', href: '/login'},
   ]
 
   return (
@@ -58,17 +61,11 @@ export function Header(props: HeaderProps) {
     >
       <motion.header
         id="header"
-        className={`h-16 flex items-center justify-between w-full z-50 ${pinMenu ? 'bg-black' : 'bg-black/50' }`}
+        className={`h-20 px-44 flex items-center justify-between w-full border-b border-black z-50 bg-white`}
       >
         <div className="container mx-auto flex justify-between px-4">
-          <MenuDesktop session={session} menus={menus} handleOpenNavbar={() => handleOpenNavbar()} />
+          <MenuDesktop logoUrl='https://betacinemas.vn/Assets/Common/logo/logo.png' session={session} menus={menus} handleOpenNavbar={() => handleOpenNavbar()} />
         </div>
-        <MenuMobile
-          session={session}
-          menus={menus}
-          openNavbar={openNavbar}
-          handleOpenNavbar={() => handleOpenNavbar()}
-        />
       </motion.header>
     </motion.div>
   );

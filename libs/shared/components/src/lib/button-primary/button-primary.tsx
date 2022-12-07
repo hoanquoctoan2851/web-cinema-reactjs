@@ -16,7 +16,7 @@ export enum buttonType {
 }
 
 export function ButtonPrimary({ children, className, onClick, outline, path, type }: ButtonPrimaryProps) {
-  const classes = `px-4 py-2 rounded-md border-primary border font-semibold  ${outline ? 'hover:text-white hover:bg-primary hover:border-white text-primary' : 'text-white bg-primary hover:bg-transparent hover:text-primary'}`
+  const classes = `px-4 py-2 rounded-md border-primary border font-semibold  'hover:text-white hover:bg-primary hover:border-white text-primary'}`
   const typeButton = type || 'button'
   if (path?.length) {
     return (

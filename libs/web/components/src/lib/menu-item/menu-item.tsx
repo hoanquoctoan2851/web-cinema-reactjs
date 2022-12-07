@@ -15,7 +15,7 @@ export function MenuItem({ href, name }: MenuItemProps) {
   return (
     <li>
       <Link
-        className="text-sm text-blueGray-400 hover:text-primary font-semibold"
+        className="text-xs text-gray-700 font-semibold"
         href={href}
       >
         { name }

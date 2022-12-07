@@ -25,6 +25,10 @@ module.exports = {
         'primary-origin': '#ee4d2d',
 
       },
+      lineHeight: {
+        'extra-loose': '2.5',
+        '0': '0rem',
+      }
     },
   },
   plugins: [],
