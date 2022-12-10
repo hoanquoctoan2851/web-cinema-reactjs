@@ -16,7 +16,7 @@ export function Layout(props: LayoutProps) {
       </Head>
       <div className="relative z-[1]">
         <Header/>
-        <main id="main" className="flex-grow px-44 py-6 h-screen">
+        <main id="main" className="flex-grow px-44 bg-layout-color py-6 h-screen">
           {children}
         </main>
         <Footer/>

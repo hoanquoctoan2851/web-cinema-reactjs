@@ -1,6 +1,5 @@
 import {useEffect } from "react"
 import { useSession } from "next-auth/react"
-import { Banner, BackgroundGlobal } from '@hotato/web/modules'
 import { Menu } from 'antd';
 import { LinkOutlined, TagOutlined  } from '@ant-design/icons';
 export function ProtectedPage() {

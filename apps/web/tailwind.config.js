@@ -23,6 +23,7 @@ module.exports = {
         'primary-200': '#fcd7aa',
         'primary-300': '#faba75',
         'primary-origin': '#ee4d2d',
+        'layout-color': '#f8f8f8',
 
       },
       lineHeight: {
