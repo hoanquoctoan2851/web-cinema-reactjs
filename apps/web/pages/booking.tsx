@@ -1,5 +1,5 @@
-import { Breadcrumb } from 'antd';
-import { TagOutlined, ClockCircleOutlined, FolderOutlined } from "@ant-design/icons"
+import { Breadcrumb, Button, Table, Space, InputNumber } from 'antd';
+import { TagOutlined, ClockCircleOutlined, UserOutlined, FolderOutlined } from "@ant-design/icons"
 import { useEffect, useState } from 'react';
 const urlScreen = '/assets/ic-screen.png'
 const CompTitleChangeColor = () => {
@@ -164,7 +164,21 @@ const RenderTableSeat = () => {
     </>
   )
 };
-const CompPoster = () => {
+const CompPoster = ({isCombo, setIsCombo}) => {
+  const RenderButton = () => {
+    if(isCombo) {
+      return (
+        <Button onClick={() => {setIsCombo(false)}} className={"m-auto bg-blue-500"} type="primary">
+          Tiếp tục
+        </Button>
+      )
+    }
+    return (
+      <Button onClick={() => {setIsCombo(true)}} className={"m-auto bg-blue-500"} type="primary">
+        Trở lại
+      </Button>
+    )
+  }
   return(
     <>
       <div className={"h-full w-full h-full"}>
@@ -234,11 +248,111 @@ const CompPoster = () => {
             <p  className={"font-semibold mr-10"}>Beta Thái Nguyên</p>
           </div>
         </div>
+        <div className={"w-full flex mt-4"}>
+          <RenderButton></RenderButton>
+        </div>
       </div>
     </>
   )
 }
+const SelectOptionBooking = () => {
+  const [valueCombo_1, setCombo_1] = useState<number>(0)
+  const [valueCombo_2, setCombo_2] = useState<number>(0)
+
+  const dataSource = [
+    {
+      key: '1',
+      name: 'Family Combo 69oz',
+      desc: 'TIẾT KIÊM 55K SO VỚI MUA LẺ!!! 2 bắp 69oz + 4 nước có ga 22oz + 2 snack oishi',
+      amount: valueCombo_1,
+    },
+    {
+      key: '2',
+      name: 'Sweet Combo 69oz',
+      desc: 'TIẾT KIỆM 30K SO VỚI MUA LẺ!!! 1 bắp 69oz + 2 nước có ga 22oz',
+      amount: valueCombo_2,
+    },
+  ];
+
+  const columns = [
+    {
+      title: 'Tên Combo',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Mô tả',
+      dataIndex: 'desc',
+      key: 'desc',
+    },
+    {
+      title: 'Số lượng',
+      dataIndex: 'amount',
+      key: 'amount',
+      render: (amount) => (
+        <>
+          <Space>
+            <InputNumber  min={0} max={10} value={amount} onChange={(value) => setCombo_1(value)} />
+          </Space>
+        </>
+      )
+    },
+  ];
+  return (
+    <>
+      <div className={"selectOptionBooking w-full mt-8 border-b-gray-800 border-b pb-2 min-w-[720px]"}>
+        <div>
+          <div className={"flex flex-row items-center mb-4"}>
+            <UserOutlined className={" w-8 h-8 flex items-center justify-center border-2 border-black rounded-full"} />
+            <p className={"font-medium text-xl"}>Thông tin cá nhân</p>
+          </div>
+          <div className={"font-semibold flex flex-row justify-between"}>
+            <div>
+              <p>Họ tên:</p>
+              <p className={"font-medium"}>Hoàng Văn Tú</p>
+            </div>
+            <div>
+              <p>Số điện thoại</p>
+            </div>
+            <div>
+              <p>Email:</p>
+              <p className={"font-medium"}>vantuhoang@gmail.com</p>
+            </div>
+          </div>
+          <div className={"flex flex-row justify-between font-semibold mt-4"}>
+            <p>Ghế Vip</p>
+            <div className={"flex flex-row gap-2"}>
+              <p>2x45.000</p>
+              <p>= 90.000 vnđ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={"mt-4"}>
+        <div className={"flex flex-row items-end mb-8"}>
+          <img className={"w-8 h-8"} src={'/assets/ic-combo.png'}/>
+          <p className={"text-xl"}>COMBO ƯU ĐÃI</p>
+        </div>
+        <Table dataSource={dataSource} columns={columns} />;
+      </div>
+    </>
+  )
+}
+const HanleSetPageOption = ({isSetCombo}) => {
+    if(isSetCombo) {
+      return (
+        <>
+          <CompListSeat></CompListSeat>
+          <RenderTableSeat></RenderTableSeat>
+        </>
+      )
+    }
+    return (
+      <SelectOptionBooking></SelectOptionBooking>
+    )
+}
 export function BookingPage() {
+  const [isSetCombo, setIsCombo] = useState(true)
   return (
     <div className="module-booking !w-full flex flex-row px-12">
       <div className={'booking-left w-full flex flex-col items-start pr-8'}>
@@ -258,11 +372,10 @@ export function BookingPage() {
           </Breadcrumb>
         </div>
         <CompTitleChangeColor></CompTitleChangeColor>
-        <CompListSeat></CompListSeat>
-        <RenderTableSeat></RenderTableSeat>
+        <HanleSetPageOption isSetCombo={isSetCombo}></HanleSetPageOption>
       </div>
       <div className={'min-w-[400px] bg-white h-screen'}>
-        <CompPoster></CompPoster>
+        <CompPoster isCombo={isSetCombo} setIsCombo={setIsCombo}></CompPoster>
       </div>
     </div>
   );
