@@ -63,12 +63,18 @@ const CompListSeat = () => {
     </>
   );
 };
-const CompHandleSeat = ({ char, length }) => {
+const CompHandleSeat = ({ char, length, activeSeat, setActiveSeat }) => {
   const vipSeat = `url(/assets/vip_seat.png)`;
   const nomalSeat = 'url(/assets/seat_unselect_normal.png)';
+  const activeVip = `url(/assets/seat-select-vip.png)`
+  const activeNomal = `url(/assets/seat-select-normal.png)`
   const [numberSeat, seNumberSeat] = useState([]);
   const myStyle = {
     backgroundImage: ['A', 'B', 'C', 'D'].includes(char) ? nomalSeat : vipSeat,
+    backgroundSize: 31,
+  };
+  const activeStyle = {
+    backgroundImage: ['A', 'B', 'C', 'D'].includes(char) ? activeNomal : activeVip,
     backgroundSize: 31,
   };
   const getLenghtSeat = () => {
@@ -82,11 +88,16 @@ const CompHandleSeat = ({ char, length }) => {
     getLenghtSeat();
   }, [length]);
   const rowSeat = numberSeat.map((arr) => {
+    const renderActive = (char + arr).toString() === activeSeat.toString() ? activeStyle : myStyle
     return (
       <>
         <div
-          style={myStyle}
+          id={`${char}${arr}`}
+          style={renderActive}
           key={numberSeat.indexOf(arr)}
+          onClick={(e) => {
+            setActiveSeat(e.currentTarget.id)
+          }}
           className={'w-8 h-8 mx-1 cursor-pointer flex'}
         >
           <p
@@ -100,6 +111,7 @@ const CompHandleSeat = ({ char, length }) => {
   return <div className={'flex flex-row justify-between'}>{rowSeat}</div>;
 };
 const RenderTableSeat = () => {
+  const [activeSeat, setActiveSeat] = useState('')
   const listChar = [
     {
       char: 'A',
@@ -148,7 +160,7 @@ const RenderTableSeat = () => {
   ];
   const listSeat = listChar.map((item) => {
     return(
-      <CompHandleSeat key={item.char} char={item.char} length={item.amount}></CompHandleSeat>
+      <CompHandleSeat setActiveSeat={setActiveSeat} activeSeat={activeSeat} key={item.char} char={item.char} length={item.amount}></CompHandleSeat>
     )
   })
   return (

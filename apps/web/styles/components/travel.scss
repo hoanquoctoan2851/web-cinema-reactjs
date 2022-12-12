@@ -1,0 +1,8 @@
+.travel {
+  .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab-active {
+    @apply bg-blue-500 #{!important}
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    @apply text-white #{!important}
+  }
+}

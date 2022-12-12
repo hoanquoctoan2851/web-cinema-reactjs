@@ -56,7 +56,7 @@ export function Header(props: HeaderProps) {
     { name: 'PHIM', href: '/booking' },
     { name: 'RẠP', href: '/protected' },
     { name: 'GIÁ VÉ', href: '/dashboard' },
-    { name: 'TIN MỚI VÀ ƯU ĐÃI', href: '/' },
+    { name: 'TIN MỚI VÀ ƯU ĐÃI', href: '/travel' },
     { name: 'NHƯỢNG QUYỀN', href: '/' },
     { name: 'THÀNH VIÊN', href: '/login' },
   ];
